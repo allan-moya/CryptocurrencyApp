@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes, Route, Link } from 'react-router-dom';
+import { Switch, Route, Link } from 'react-router-dom';
 import { Layout, Typography, Space } from 'antd';
 import { Exchanges, Homepage, News, Cryptocurrencies, CryptoDetails, Navbar } from './components';
 import './App.css'
@@ -13,7 +13,7 @@ export default function App() {
             <div className="main">
                 <Layout>
                     <div className="routes">
-                        <Routes>
+                        <Switch>
                             <Route exact path="/">
                                 <Homepage />
                             </Route>
@@ -30,7 +30,7 @@ export default function App() {
                                 <News />
                             </Route>
 
-                        </Routes>
+                        </Switch>
                     </div>
                 </Layout>
                 <div className="footer">
@@ -47,8 +47,6 @@ export default function App() {
                     </Space>
                 </div>
             </div>
-
-
         </div>
     )
 }
