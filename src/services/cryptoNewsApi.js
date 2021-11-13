@@ -4,7 +4,7 @@ const cryptoNewsHeaders = {
 
     'x-bingapis-sdk': 'true',
     'x-rapidapi-host': 'bing-news-search1.p.rapidapi.com',
-    'x-rapidapi-key': '81f0f65a26msha2fef2a69e04587p157817jsn76279ab8d7a7'
+    'x-rapidapi-key': process.env.REACT_APP_RAPIDAPI_KEY
 
 }
 
