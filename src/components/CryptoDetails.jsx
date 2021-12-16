@@ -5,7 +5,8 @@ import millify from 'millify';
 import { Col, Row, Typography, Select } from 'antd';
 import { MoneyCollectOutlined, DollarCircleOutlined, FundOutlined, ExclamationCircleOutlined, StopOutlined, TrophyOutlined, CheckOutlined, NumberOutlined, ThunderboltOutlined } from '@ant-design/icons';
 
-import { useGetCryptoDetailsQuery } from '../services/cryptoAPI';
+import LineChart from './LineChart';
+import { useGetCryptoDetailsQuery, useGetCryptoHistoryQuery } from '../services/cryptoAPI';
 import Loader from './Loader'
 
 const { Title, Text } = Typography;
@@ -20,6 +21,7 @@ function CryptoDetails() {
     const { coinId } = useParams();
     const [timeperiod, setTimeperiod] = useState('7d');
     const { data, isFetching } = useGetCryptoDetailsQuery(coinId);
+    const { data: coinHistory } = useGetCryptoHistoryQuery({ coinId, timeperiod });
     const cryptoDetails = data?.data?.coin;
 
     if (isFetching) return <Loader />;
@@ -54,6 +56,7 @@ function CryptoDetails() {
             <Select defaultValue="7d" className="select-timeperiod" placeholder="Select Timeperiod" onChange={(value) => setTimeperiod(value)}>
                 {time.map((date) => <Option key={date}>{date}</Option>)}
             </Select>
+            <LineChart coinHistory={coinHistory} currentPrice={millify(cryptoDetails.price)} coinName={cryptoDetails.name} />
 
             <Col className="stats-container">
                 <Col className="coin-value-statistics">
