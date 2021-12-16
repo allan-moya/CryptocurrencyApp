@@ -4,13 +4,13 @@ Crypto Valley is a web application that provides various tools and information o
 
 Here's the full stack of frameworks/libraries used:
 
-*React.js
-*Redux.js
-*antd for React components 
-*Chart.js to provide live charts
-*moment.js 
+* React.js
+* Redux.js
+* antd for React components 
+* Chart.js to provide live charts
+* moment.js 
 
-##How to Setup Development Environment 
+## How to Setup Development Environment 
 
 ### `npm install`
 To install all dependencies.
@@ -31,6 +31,7 @@ It correctly bundles React in production mode and optimizes the build for the be
 ## First Time Project Template Setup
 
 1.Create a .env File
+
 REACT_APP_RAPIDAPI_KEY = 'add api key here'
 REACT_APP_CRYPTO_RAPIDAPI_HOST =''
 REACT_APP_CRYPTO_API_URL = ''
